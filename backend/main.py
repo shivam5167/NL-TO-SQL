@@ -2,7 +2,7 @@ from fastapi import FastAPI
 
 from backend.models import QueryRequest
 from backend.rag_pipeline import retrieve_schema
-from backend.gemini_engine import generate_sql, humanize_result
+from backend.llm_engine import generate_sql, humanize_result
 from backend.db_runner import PostgresRunner
 app = FastAPI()
 

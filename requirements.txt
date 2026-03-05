@@ -1,0 +1,11 @@
+fastapi
+uvicorn
+psycopg2-binary
+sqlalchemy
+sentence-transformers
+chromadb
+google-generativeai
+pydantic
+numpy
+streamlit
+requests

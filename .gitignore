@@ -1,0 +1,32 @@
+# Python cache / build
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.egg-info/
+.pytest_cache/
+
+# Virtual environments
+venv/
+.venv/
+env/
+
+# Local secrets / env files
+.env
+.env.*
+!.env.example
+
+# Local config overrides
+backend/config.local.py
+backend/config.py
+
+# Databases / vector stores / runtime artifacts
+vectordb/
+backend/vectordb/
+*.sqlite3
+*.db
+
+# OS / editor
+.DS_Store
+.vscode/
+share/

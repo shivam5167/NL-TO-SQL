@@ -146,39 +146,6 @@ Error response shape:
 }
 ```
 
-## Deployment
-
-### Render (recommended)
-This repo includes `render.yaml` for two services:
-- `dbdiver-backend`
-- `dbdiver-frontend`
-
-Steps:
-1. Push repository to GitHub.
-2. In Render, create a new Blueprint and select the repo.
-3. Set env vars:
-   - Backend: `OPENAI_API_KEY`
-   - Frontend: `BACKEND_URL` set to backend public URL
-4. Deploy both services.
-
-Notes:
-- Backend uses persistent disk for vector DB at `/var/data/vectordb`.
-- Free tier services may cold-start or sleep.
-
-## Docker (Backend)
-
-Build:
-
-```bash
-docker build -t dbdiver-backend -f dockerfile .
-```
-
-Run:
-
-```bash
-docker run -p 8000:8000 -e OPENAI_API_KEY="your_key_here" dbdiver-backend
-```
-
 ## Security Notes
 - Do not commit secrets to source code.
 - Use environment variables for API keys.
@@ -196,12 +163,3 @@ docker run -p 8000:8000 -e OPENAI_API_KEY="your_key_here" dbdiver-backend
 - Current schema indexer enforces PostgreSQL only.
 - SQL safety guardrails are minimal; use a restricted DB user with least privilege.
 - Very large query results are summarized from a truncated preview.
-
-## Future Improvements
-- Add SQL validation and allowlist/denylist checks before execution.
-- Add retries using `fix_sql` path on SQL errors.
-- Add authentication and rate limiting to backend endpoints.
-- Add tests for API, schema indexing, and SQL generation pipeline.
-
-## License
-No license file is currently present in this repository. Add one if you plan to distribute this project.
